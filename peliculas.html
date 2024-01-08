@@ -20,14 +20,37 @@
         <nav class="flex items-center ">
             <a href="./index.html" class="m-4 text-xl text-white hover:bg-white hover:text-black hover:text-black hover:border px-4 py-1 ">Home</a>
             <a href="#" class="m-4 text-xl text-white border px-4 py-1 hover:bg-white hover:text-black">Movies</a>
-            <a href="#" class="m-4 text-xl text-white">Favs</a>
+            <a href="./favs.html" class="m-4 text-xl text-white hover:bg-white hover:text-black hover:text-black hover:border px-4 py-1 ">Favs</a>
         </nav>
 
     </header>
     <main>
-        <img src="./img/cinema-banner.jpg" class="block  m-auto w-2/2">
+        <div class="m-10"> 
+            <img src="https://image.freepik.com/vector-gratis/cine-letrero-neon-abierto_1262-15882.jpg"  class="mx-auto"  align-content: center" alt="banner movier">
+         </div>
 
-        <div id="movieTwo" class="flex flex-wrap m-10 p-auto"></div>
+         <div class="flex  justify-evenly items-center  "> 
+           <search>
+             <label for="" class="text-white">Genero :</label>
+                 <select name="Genero" id="Genero" class="px-5 mx-2">
+                     <option value="Mystery">Mystery</option>
+                     <option value= "Crime">Crime </option>
+                     <option value="Action"> Action </option>
+                     <option value="Adventure">Adventure</option>
+                     <option value="Animation">Animation</option>
+                     <option value="Family">Family</option>
+                     <option value="Drama">Drama</option>
+                     <option value="Fantasy">Fantasy</option>
+                     <option value="Romance">Romance</option>
+                     <option value="Science Fiction">Science Fiction</option>
+                 </select>
+                <input id="busqueda" class="rounded " type="text" placeholder="Search" size="50" >
+             
+           </search>
+            <div id="MoviFilm">  </div>
+         </div>
+
+        <div id="movieTwo" class="flex flex-wrap  justify-around gap-10 m-24  p-auto">   </div>
 
     </main>
 
