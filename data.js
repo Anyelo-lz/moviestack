@@ -4,10 +4,10 @@ const favoritoslist = JSON.parse(localStorage.getItem('favoritos')) || []
 const favoritos = favoritoslist.slice()
 const $contenidoDePeliculas = document.getElementById("contenidoDePeliculas")
 const $busquedaContenido = document.getElementById("busquedaPorInput")
-const $GeneroMovie = document.getElementById("Genero");
+const $GeneroMovie = document.getElementById("Genero")
 const $aplicarFiltrosButton = document.getElementById("aplicarFiltros")
 const favoritosContainer = document.getElementById('favoritos-container')
-
+ 
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -23,22 +23,38 @@ document.addEventListener('DOMContentLoaded', function () {
           <h3 class="text-white text-lg text-center">${pelicula.title}</h3>
           <img class="pr-10 m-5" src="https://moviestack.onrender.com/static/${pelicula.image}" alt="imagen película">
           <p class="text-white text-justify text-xs">${pelicula.overview}</p>
-        </section>
-      </div>`;
+          </section>
+      </div>`
       favoritosContainer.innerHTML += peliculaHTML
+    })
+  }
+  // --------------------Filtros de peliculas y Generos-------------------
+  
+  function filtrarPorTituloYGenero(listmoviestack, tituloPelicula, genero) {
+    const moviesArray = Array.from(listmoviestack)  
+    return moviesArray.filter((pelicula) => {
+      const tituloCoincide = pelicula.title.toLowerCase().includes(tituloPelicula.toLowerCase())
+      const esGeneroValido = pelicula.genres.includes(genero)
+      return tituloCoincide && esGeneroValido
     });
   }
-
+  
+  function aplicarFiltros() {
+    const filtroTitulo = $busquedaContenido.value
+    const filtroGenero = $GeneroMovie.value
+    const peliculasFiltradas = filtrarPorTituloYGenero(data.movies, filtroTitulo, filtroGenero)
+    $contenidoDePeliculas.innerHTML = recorriendoDeLasPropiedadesDeLasPeliculas(peliculasFiltradas)
+  }
   // Agregar eventos para filtros de búsqueda
-  // Llamar a renderMovies después de cargar la página
+  
   if ($aplicarFiltrosButton && $busquedaContenido) {
     $aplicarFiltrosButton.addEventListener("click", aplicarFiltros)
     $busquedaContenido.addEventListener("input", aplicarFiltros)
   }
-
+//---------------Consumiendo el Api y X-api-kay----------------------
   fetchData()
     .then(() => {
-      console.log("Instrucción en finally")
+      console.log("Instruccion en finalizacion")
       vistaMovies()
     })
     .catch(error => console.error(error))
@@ -65,7 +81,7 @@ function fetchData() {
       console.error("Error al obtener los datos:", error)
     })
 }
-
+//--------------------------Pagina de Favoritos----------------------------------------------
 function propiedadesDeLasPeliculas(title, image, overview, id) {
   const isFavorite = favoritos.some(movie => movie.id === id)
   const heartIcon = isFavorite ? 'corazon.png' : 'corazon_gris.png'
@@ -87,7 +103,7 @@ function recorriendoDeLasPropiedadesDeLasPeliculas(elementos) {
   let $contadorDePeliculas = " "
   elementos.forEach(recorriendolasPeliculas => {
     $contadorDePeliculas += propiedadesDeLasPeliculas(recorriendolasPeliculas.title, recorriendolasPeliculas.image, recorriendolasPeliculas.overview, recorriendolasPeliculas.id)
-  });
+  })
   return $contadorDePeliculas
 }
 
@@ -111,27 +127,6 @@ function toggleFavorite(button, esFavoritoLaPagina) {
 
   localStorage.setItem('favoritos', JSON.stringify(favoritos))
 
-  // Si estamos en favs.html, eliminamos la película seleccionada de la vista
-  if (esFavoritoLaPagina) {
-    const favsContainer = document.getElementById('favoritos-container')
-    const movieElement = button.closest('.w-1/4')
-    favsContainer.removeChild(movieElement)
-  }
 }
 
-function filtrarPorTituloYGenero(listmoviestack, tituloPelicula, genero) {
-  return listmoviestack.filter((pelicula) => {
-    const tituloCoincide = pelicula.title.toLowerCase().includes(tituloPelicula.toLowerCase())
-    const esGeneroValido = pelicula.genres.includes(genero)
-    return tituloCoincide && esGeneroValido
-  })
-}
-
-function aplicarFiltros() {
-  const filtroTitulo = $busquedaContenido.value
-  const filtroGenero = $GeneroMovie.value
-  const peliculasFiltradas = filtrarPorTituloYGenero(data, filtroTitulo, filtroGenero)
-  $contenidoDePeliculas.innerHTML = recorriendoDeLasPropiedadesDeLasPeliculas(peliculasFiltradas)
-}
-
-console.log('Favoritos:', favoritos)
+ 
