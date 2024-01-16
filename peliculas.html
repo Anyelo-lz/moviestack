@@ -10,61 +10,59 @@
     <title>Home Page</title>
 </head>
 
-<body class="box-border p-0 m-0 bg-black">
-    <header class="flex justify-between m-1 border mt-[40px] ">
+<body class="box-border p-0 m-0 bg-indigo-950">
+    <header class="flex justify-between">
 
         <div class="flex">
-            <img src="./img/Moviestack_isotipo.png" class="w-[70px] h-[70px]  object-contain" alt="logo movies">
-            <img src="./img/Moviestack_logotipo2.png" class="w-[180px] h-[80px]" alt=" text Moviestack">
+            <img src="./img/Moviestack_isotipo.png" class="w-24 h-24 object-contain" alt="logo movies">
+            <img src="./img/Moviestack_logotipo1.png" class="w-1/5 alt=" text Moviestack"> 
         </div>
         <nav class="flex items-center ">
-            <a href="./index.html" class="m-4 text-xl text-white   px-4 py-1 hover:bg-white hover:text-black">Home</a>
-            <a href="#"
-                class="m-4 text-xl text-white  border px-4 py-1 hover:bg-white hover:text-black ">Movies</a>
-            <a href="#" class="m-4 text-xl text-white hover:bg-white hover:text-black hover:text-black hover:border px-4 py-1 ">Favs</a>
+            <a href="./index.html" class="rounded-lg  m-4 text-xl text-white   px-4 py-1 hover:bg-white hover:text-black">Home</a>
+            <a href="#" class=" rounded-lg m-4 text-xl text-white  border px-4 py-1 hover:bg-white hover:text-black ">Movies</a>
+            <a href="./favs.html" id="favsButton" class="rounded-lg m-4 text-xl text-white   px-4 py-1 hover:bg-white hover:text-black">Favs</a>
         </nav>
 
     </header>
     <main>
-        <div class="m-10"> 
-            <img src="https://image.freepik.com/vector-gratis/cine-letrero-neon-abierto_1262-15882.jpg"  class="mx-auto"  align-content: center" alt="banner movier">
-         </div>
+        <div >
+            <img src="./img/letreroDeCine.jpg" class="mx-auto"
+                alt="banner movier">
+        </div>
+        <div class="flex justify-evenly items-center">
+            <search id="aplicarFiltros" class="m-10">
+                <label for="" class="text-white">Genero:</label>
+                <select name="Genero" id="Genero" class="px-5 mx-2">
+                    <option value="Mystery">Mystery</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Crime">Crime </option>
+                    <option value="Action"> Action </option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Family">Family</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                </select>
+                <input id="busquedaPorInput" class="rounded " type="text" placeholder="Search" size="50">
 
-         <div class="flex  justify-evenly items-center  "> 
-           <search>
-             <label for="" class="text-white">Genero :</label>
-                 <select name="Genero" id="Genero" class="px-5 mx-2">
-                     <option value="Mystery">Mystery</option>
-                     <option value="Horror">Horror</option>
-                     <option value= "Crime">Crime </option>
-                     <option value="Action"> Action </option>
-                     <option value="Adventure">Adventure</option>
-                     <option value="Animation">Animation</option>
-                     <option value="Family">Family</option>
-                     <option value="Drama">Drama</option>
-                     <option value="Fantasy">Fantasy</option>
-                     <option value="Romance">Romance</option>
-                     <option value="Science Fiction">Science Fiction</option> 
-                 </select>
-                <input id="busqueda" class="rounded " type="text" placeholder="Search" size="50" >
-             
-           </search>
-            <div id="MoviFilm">  </div>
-         </div>
+            </search>
 
-        <div id="movieTwo" class="flex flex-wrap  justify-around gap-10 m-24  p-auto">   </div>
+        </div>
 
+        <div id="contenidoDePeliculas" class="flex flex-wrap  justify-around gap-10  m-10 p-auto"> </div>
     </main>
-
 
     <footer class="p-5 my-24 mx-1 border bg-slate-800">
         <p class="text-white text-center">© MinHub | Lopez Angel William Leonel - Cohort N°53</p>
     </footer>
-    <script    src="./date.js"></script>
-    <script type="module"  src="./main.js"></script>
-    <script   src="./detallePeli.js"></script>
-    <script type="module"  src="./module/function.js"></script>
-    
+    <script src="./data.js"></script>
+
+
+
+
+
 </body>
 
 </html>

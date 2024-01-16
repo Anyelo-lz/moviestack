@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content=" Movies to Watch">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/Moviestack_favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>favs</title>
+</head>
+
+<body class="box-border p-0 m-0 bg-indigo-950">
+    <header class="flex justify-between">
+
+        <div class="flex">
+            <img src="./img/Moviestack_isotipo.png" class="w-24 h-24 object-contain" alt="logo movies">
+            <img src="./img/Moviestack_logotipo1.png" class="w-1/5 alt=" text Moviestack"> 
+        </div>
+        <nav class="flex items-center ">
+            <a href="./index.html" class="rounded-lg  m-4 text-xl text-white   px-4 py-1 hover:bg-white hover:text-black">Home</a>
+            <a href="./peliculas.html" class=" rounded-lg m-4 text-xl text-white   px-4 py-1 hover:bg-white hover:text-black ">Movies</a>
+            <a href="#" id="favsButton" class="rounded-lg m-4 text-xl text-white  border  px-4 py-1 hover:bg-white hover:text-black">Favs</a>
+        </nav>
+  </header>
+        <main>  
+            
+  <h1 class=" text-white text-5xl text-center p-10 bg-purple-950">Mis Películas Favoritas</h1>
+  <div class="flex flex-wrap justify-around gap-5 m-5"   id="favoritos-container"></div>
+  
+     </main> 
+  <script src="./data.js"></script>
+</body>
+</html>
+ 
